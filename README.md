@@ -6,7 +6,6 @@ Este proyecto implementa una API básica para la gestión de un sistema de reser
 
 - `sala.h` y `sala.c`: Contienen la implementación de la API para la gestión de las reservas de asientos.
 - `test_sala.c`: Incluye una serie de pruebas unitarias para validar la correcta funcionalidad de la API.
-- `Makefile`: Facilita la compilación del proyecto.
 
 ## Cómo Ejecutar
 
