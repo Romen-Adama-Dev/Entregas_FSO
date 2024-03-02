@@ -12,7 +12,7 @@ Este proyecto implementa una API básica para la gestión de un sistema de reser
 Para compilar y ejecutar las pruebas del proyecto, sigue estos pasos:
 
 1. Clona este repositorio y navega al directorio del proyecto.
-2. Ejecuta `make` para compilar el proyecto.
+2. Ejecuta `gcc -o test_sala sala.c test_sala.c ` para compilar el proyecto.
 3. Ejecuta `./test_sala` para correr las pruebas unitarias.
 
 ## Contribuciones
