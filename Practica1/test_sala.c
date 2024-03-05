@@ -155,7 +155,17 @@ void test_levantarse(int id_persona) {
     FIN_TEST("Levantarse de un Asiento");
 }
 
-
+void test_asientos_libres() {
+    INICIO_TEST("Asientos Libres");
+    crea_sala(CAPACIDAD_CUYAS);
+    DebeSerCierto(asientos_libres() == CAPACIDAD_CUYAS);
+    reserva_asiento(1);
+    DebeSerCierto(asientos_libres() == CAPACIDAD_CUYAS - 1);
+    asientos_libres == 1;
+    estado_asiento(1) == 1;
+    elimina_sala();
+    FIN_TEST("Asientos Libres");
+}
 
 void ejecuta_tests ()
 {
@@ -165,6 +175,7 @@ void ejecuta_tests ()
     test_estado_sala();
     test_sentarse(123);
     test_levantarse(123);
+    test_asientos_libres();
     int lista_id[] = {1, 2, 3, 4, 5};
     test_reserva_multiple(5, lista_id);
 }
