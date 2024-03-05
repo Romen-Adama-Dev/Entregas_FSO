@@ -16,8 +16,6 @@
 void INICIO_TEST (const char* titulo_test)
 {
   printf("********** batería de pruebas para %s: ", titulo_test); 
- 	// fflush fuerza que se imprima el mensaje anterior
-	// sin necesidad de utilizar un salto de línea
 	fflush(stdout);
 }
 
@@ -50,16 +48,10 @@ void test_ReservaFallida()
 
     // Reserva sin sala creada
     mi_asiento = reserva_asiento(ID_1);
-    DebeSerFalso(mi_asiento >= 0); // Debería fallar ya que la sala no está creada
-
-    // Crear sala
+    DebeSerFalso(mi_asiento >= 0);
     crea_sala(CAPACIDAD_CUYAS);
-
-    // Ids inválidos
     DebeSerFalso(reserva_asiento(0) >= 0);
     DebeSerFalso(reserva_asiento(-1) >= 0);
-
-    // Capacidad exedida
     for (int i = 0; i < CAPACIDAD_CUYAS; i++) {
         reserva_asiento(ID_1);
     }
@@ -169,9 +161,9 @@ void test_asientos_libres() {
 void test_PruebasDeLimites() {
     INICIO_TEST("Pruebas de Límites");
     crea_sala(CAPACIDAD_CUYAS);
-    DebeSerFalso(reserva_asiento(ID_1) >= CAPACIDAD_CUYAS + 1); // Intento de reservar un asiento fuera de límites
-    DebeSerFalso(libera_asiento(CAPACIDAD_CUYAS + 1) >= 0); // Intento de liberar un asiento fuera de límites
-    DebeSerFalso(libera_asiento(0) >= 0); // Intento de liberar un asiento con número inválido
+    DebeSerFalso(reserva_asiento(ID_1) >= CAPACIDAD_CUYAS + 1);
+    DebeSerFalso(libera_asiento(CAPACIDAD_CUYAS + 1) >= 0);
+    DebeSerFalso(libera_asiento(0) >= 0);
     elimina_sala();
     FIN_TEST("Pruebas de Límites");
 }
