@@ -166,6 +166,23 @@ void test_asientos_libres() {
     FIN_TEST("Asientos Libres");
 }
 
+void test_PruebasDeLimites() {
+    INICIO_TEST("Pruebas de Límites");
+    crea_sala(CAPACIDAD_CUYAS);
+    DebeSerFalso(reserva_asiento(ID_1) >= CAPACIDAD_CUYAS + 1); // Intento de reservar un asiento fuera de límites
+    DebeSerFalso(libera_asiento(CAPACIDAD_CUYAS + 1) >= 0); // Intento de liberar un asiento fuera de límites
+    DebeSerFalso(libera_asiento(0) >= 0); // Intento de liberar un asiento con número inválido
+    elimina_sala();
+    FIN_TEST("Pruebas de Límites");
+}
+
+void test_CreaSalaConEntradaNegativa() {
+    INICIO_TEST("Crea Sala con Entrada Negativa o Cero");
+    DebeSerFalso(crea_sala(-1) >= 0);
+    DebeSerFalso(crea_sala(0) >= 0);
+    FIN_TEST("Crea Sala con Entrada Negativa o Cero");
+}
+
 void ejecuta_tests ()
 {
 	test_ReservaBasica();
@@ -177,6 +194,8 @@ void ejecuta_tests ()
     test_asientos_libres();
     int lista_id[] = {1, 2, 3, 4, 5};
     test_reserva_multiple(5, lista_id);
+    test_PruebasDeLimites();
+    test_CreaSalaConEntradaNegativa();
 }
 
 int main()
