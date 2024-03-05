@@ -22,7 +22,7 @@ int reserva_asiento (int id_persona){
   			
   			asientos_totales[i] = id_persona;
   	
-  			return i;
+  			return i + 1;
   		}
   	}
   	
