@@ -175,6 +175,30 @@ void test_CreaSalaConEntradaNegativa() {
     FIN_TEST("Crea Sala con Entrada Negativa o Cero");
 }
 
+void test_LlenarSala_VaciarSala(){
+    INICIO_TEST("Llenar Sala y luego Vaciarla");
+    crea_sala(CAPACIDAD_CUYAS);
+    // Llenar la sala
+    for (int i = 1; i <= CAPACIDAD_CUYAS; i++) {
+        reserva_asiento(i);
+    }
+    DebeSerCierto(asientos_libres() == 0); // Verifica que la sala esté completamente llena.
+    DebeSerCierto(asientos_ocupados() == CAPACIDAD_CUYAS);
+
+    // Vaciar la sala
+    for (int i = 1; i <= CAPACIDAD_CUYAS; i++) {
+        libera_asiento(i);
+    }
+
+    // Verificar que la sala está completamente vacía
+    DebeSerCierto(asientos_libres() == CAPACIDAD_CUYAS);
+    DebeSerCierto(asientos_ocupados() == 0);
+
+    elimina_sala();
+    FIN_TEST("Llenar Sala y luego Vaciarla");
+}
+
+
 void ejecuta_tests ()
 {
 	test_ReservaBasica();
@@ -188,6 +212,7 @@ void ejecuta_tests ()
     test_reserva_multiple(5, lista_id);
     test_PruebasDeLimites();
     test_CreaSalaConEntradaNegativa();
+    test_LlenarSala_VaciarSala();
 }
 
 int main()
