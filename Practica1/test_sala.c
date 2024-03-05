@@ -161,8 +161,7 @@ void test_asientos_libres() {
     DebeSerCierto(asientos_libres() == CAPACIDAD_CUYAS);
     reserva_asiento(1);
     DebeSerCierto(asientos_libres() == CAPACIDAD_CUYAS - 1);
-    asientos_libres == 1;
-    estado_asiento(1) == 1;
+    DebeSerCierto(estado_asiento(1) == 1);
     elimina_sala();
     FIN_TEST("Asientos Libres");
 }
