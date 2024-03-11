@@ -33,15 +33,15 @@ int reserva_asiento (int id_persona){
 int libera_asiento(int id_asiento){
 	
 	//Comprobación de errores
-	if (asientos_totales == NULL || id_asiento < 0 || id_asiento >= capacidad_asientos){
+	if (asientos_totales == NULL || id_asiento < 0 || id_asiento > capacidad_asientos){
   		return -1;
   	}
   
-  	if (asientos_totales[id_asiento] > -1){
+  	if (asientos_totales[id_asiento -1] > -1){
   		
-  		int aux = asientos_totales[id_asiento];	
+  		int aux = asientos_totales[id_asiento - 1];	
 
-  		asientos_totales[id_asiento] = -1;
+  		asientos_totales[id_asiento -1] = -1;
   	
   		return aux;
     }
@@ -56,8 +56,8 @@ int estado_asiento(int id_asiento) {
         return -1;
     }
     
-    if (asientos_totales[id_asiento] >= 0 ) {
-    	return asientos_totales[id_asiento];
+    if (asientos_totales[id_asiento -1] >= 0 ) {
+    	return asientos_totales[id_asiento -1];
     }
     
     return 0;
