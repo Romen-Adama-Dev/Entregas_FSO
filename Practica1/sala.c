@@ -6,7 +6,7 @@ static int capacidad_actual = 0;
 static int asientosOcupados = 0;
 
 int crea_sala(int capacidad) {
-    if (asientos != NULL || capacidad <= 0) {
+    if (asientos != NULL || capacidad <= 0 || capacidad > CAPACIDAD_MAXIMA) {
         return -1;
     }
     asientos = (int *)malloc(capacidad * sizeof(int));

@@ -1,5 +1,6 @@
 #ifndef SALA_H
 #define SALA_H
+#define CAPACIDAD_MAXIMA 100
 
 int crea_sala(int capacidad);
 int elimina_sala(void);
