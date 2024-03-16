@@ -17,7 +17,7 @@ Para compilar y ejecutar las pruebas del proyecto, sigue estos pasos:
 
 ## Contribuciones
 
-Este proyecto sigue la dinámica del Git Flow, por lo que todas las contribuciones deben realizarse a través de "feature branches" y ser fusionadas a `develop` mediante Pull Requests.
+Este proyecto sigue la dinámica del Git Flow, por lo que todas las contribuciones deben realizarse a través de "feature branches" y ser fusionadas a `main` mediante Pull Requests.
 
 ## Licencia
 
